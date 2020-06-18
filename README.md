@@ -16,5 +16,9 @@ $ `sudo chmod +x s.sh` <br>
 and then execute: <br>
 $ `bash s.sh` to run the script.
 
-Output:<br> the output of running file `s.sh` on every test case is either `Accepted` if your solution's output matches the brute solution output or `Wrong Answer` and will show the input on which the solution failed, the output of your solution and expected output according to the brute force solution on terminal and the script will be terminated. Now you can debug your original solution and check where it goes wrong. <br>
-If you wish to terminate the script at any moment you wish use the command `ctrl + c` in your terminal.
+Output:<br> The output of running file `s.sh` on every test case is either `Accepted` if your solution's output matches the brute solution output or `Wrong Answer` and will show the input on which the solution failed, the output of your solution and expected output according to the brute force solution on terminal and the script will be terminated. Now you can debug your original solution and check where it goes wrong. <br>
+If you wish to terminate the script at any moment you wish use the command `ctrl + c` in your terminal.<br>
+
+Quick Demo: below the solution fails on randomly generated test #4: <br>
+
+(![ ](https://imagehost.imageupload.net/2020/06/17/Screenshot-from-2020-06-18-01-47-25.png))
