@@ -1,3 +1,4 @@
+**Note**: A more detailed explanation can be found [here](https://codeforces.com/blog/entry/78985) on `Codeforces`.
 # Stress Testing bash script
 
 In competitive programming, stress testing is a technique of testing your solution on a number
