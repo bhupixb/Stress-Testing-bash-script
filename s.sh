@@ -6,7 +6,13 @@ g++ -std=c++17 gen.cpp -o generator # -O2
 g++ -std=c++17 solution.cpp -o original # -O2
 g++ -std=c++17 brute.cpp -o brute #-O2
 
-max_tests=10 # change it accordingly
+if [ $# -ne 1 ]
+then
+	max_tests=10 # default number of test cases | change it accordingly
+else
+	max_tests=$1
+fi
+
 diff_found=0
 
 # to color the output text in different colours
