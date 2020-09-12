@@ -30,7 +30,7 @@ do
 
 	# run original solution, take input from above generated test case i.e. from input1.txt
 	# and save it in original_output.txt
-	./original < input1.txt > original_output.txt || {echo failed; exit 1;}
+	./original < input1.txt > original_output.txt || echo failed; exit 1;
 
 	# run brute force solution, take input from above generated test case i.e. from input1.txt
 	# and save it in brute_output.txt
