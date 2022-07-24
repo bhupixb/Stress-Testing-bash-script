@@ -3,7 +3,7 @@
 
 using namespace std;
 
-// Takes an array of integers and sort them.
+// Takes an array of integers and sort them with off by 1 error.
 void solve() {
     int n;
     cin >> n;
@@ -15,7 +15,9 @@ void solve() {
         cin >> x;
     }
 
-    sort(arr.begin(), arr.end());
+    // Notice + 1 here, we are ignoring first element of array during sort to intentionally
+    // make the logic incorrect.
+    sort(arr.begin() + 1, arr.end());
     for (int x: arr) {
       cout << x << ' ';
     }

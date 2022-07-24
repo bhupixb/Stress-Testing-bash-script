@@ -57,6 +57,11 @@ function cleanup() {
     rm -f input1.txt generator original brute original_output.txt brute_output.txt
 }
 
+function tips() {
+    echo ""
+    echo "${blue}You might want to use ${green}https://www.diffchecker.com/diff${reset} to better visualize the difference in output :)${reset}"
+}
+
 function stress_test() {
     local diff_found=0
 
@@ -93,11 +98,13 @@ function stress_test() {
 
         echo "${blue}Output(Main sol): ${reset}"
         cat original_output.txt
-        echo ""
+        echo ""; echo ""
 
         echo "${blue}Expected(Brute sol): ${reset}"
         cat brute_output.txt
         echo ""
+
+        tips
     fi
 }
 
@@ -141,7 +148,7 @@ function main() {
     compile "${BRUTE_FILE}" "brute"
 
     stress_test
-    cleanup
+    # cleanup
 }
 
 main "$@"
