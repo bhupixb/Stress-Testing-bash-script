@@ -1,32 +1,50 @@
-**Note**: A more detailed explanation can be found [here](https://codeforces.com/blog/entry/78985) on `Codeforces`.
+**Note**: A Codeforces blog can be found [here](https://codeforces.com/blog/entry/78985) on `Codeforces`.
 # Stress Testing bash script
 
-In competitive programming, stress testing is a technique of testing your solution on a number
-of random test cases to find where the code might fail. 
+A simple bash script which stress tests an optimized solution & a brute
+force solution on randomly generated testcases, to find a possible failing testcase.<br>
 
-### Installing
-Download this repository manually or by using git clone on terminal.
+### Usage
+Clone this repository using git or download manually.
 
-Copy your original solution which you expect might fail in the file `solution.cpp`. <br>
-Copy your brute force solution which is expected to give correct output in the file `brute.cpp`. <br>
-Change the `gen.cpp` file so as to generate test cases according to the question. <br>
+```bash
+# Clone the Repository.
+$ git clone https://github.com/bhupixb/Stress-Testing-bash-script
 
-Now open your terminal in the directory where file `s.sh` resides and execute:<br>
-Once give the execute permissions to `s.sh` file using: <br>
-$ `sudo chmod +x s.sh` <br>
-and then execute: <br>
-$ `bash s.sh` to run the script.
+# Change directory.
+$ cd Stress-Testing-bash-script
 
-### Changing number of test cases
-`bash s.sh`
-**->** This will generate **10** (_default_) test cases and then check the program against it.
+# Give execute permission to `stress_test` script to current user.
+$ sudo chmod u+x stress_test
 
-`bash s.sh 100`
-**->** This will generate **100** test cases and then check the program against it.
+# Assuming your optmized solution is in main.cpp and brute force solution 
+# in brute.cpp, to run stress test:
+$ ./stress_test -b brute.cpp -m main.cpp
 
-Output:<br> The output of running file `s.sh` on every test case is either `Accepted` if your solution's output matches the brute solution output or `Wrong Answer` and will show the input on which the solution failed, the output of your solution and expected output according to the brute force solution on terminal and the script will be terminated. Now you can debug your original solution and check where it goes wrong. <br>
-If you wish to terminate the script at any moment you wish use the command `ctrl + c` in your terminal.<br>
+# To print usage, use -h flag
+$ ./stress_test -h
+```
+![Usage Screenshot](example.png "Sample Usage Screenshot")
 
-Quick Demo: below the solution fails on randomly generated test #4: <br>
+### When to use:
+This is useful when your optimized solution is failing on some test case during a contest<br>
+and you are unable to come up with a failing test case. <br> 
+In cases like this if you write a brute force solution that you are sure that will produce
+correct output and run these 2 solutions on random tests, it can help
+you find a test case which fails on your main solution.
 
-(![ ](https://imagehost.imageupload.net/2020/06/17/Screenshot-from-2020-06-18-01-47-25.png))
+### How it works:
+1. This script takes your main solution and brute force solution cpp file as argument.
+2. Compiles the code & generates executable.
+3. Generates testcases(default 10) from `tc_generator.cpp` program and runs your main & brute solution
+   against it. Then it checks for difference in output of both solutions, if it differs, the 
+   script reports the testcase, output of your main solution and output of your brute force
+   solution to your terminal STDOUT.
+4. Now you can figure out, what's wrong in your solution given a test case on which your sol
+   fails.
+
+### Testcase Generator:
+The file `tc_generator.cpp` has some boilerplate code to generate commonly
+required testcases like `tree`, `graph`, `array of integers` & `strings`. <br>
+You can modify this file to generate test cases as per your requirements.
+
