@@ -46,5 +46,17 @@ you find a test case which fails on your main solution.
 ### Testcase Generator:
 The file `tc_generator.cpp` has some boilerplate code to generate commonly
 required testcases like `tree`, `graph`, `array of integers` & `strings`. <br>
-You can modify this file to generate test cases as per your requirements.
+You can modify this file to generate test cases as per your requirements. E.g.
+1) to generate an array calling:
+    `gen_array(10, -5, 10)`;
+    it will return an array(vector more specifically) with length 10 and elements in the range [-5, 10].
 
+2) to generate a tree calling:
+   `gen_tree(10)`:
+   will return a tree with 10 nodes.
+
+3) to generate a simple graph calling:
+   `gen_simple_graph(10, 12)`;
+   will return a simple connected graph with 10 nodes and 12 edges.
+
+  You can add things as you need them or use testlib which is the best if you know how to use it.
