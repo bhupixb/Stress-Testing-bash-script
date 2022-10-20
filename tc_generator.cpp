@@ -49,6 +49,16 @@ namespace generator {
     for (char &ch: str) {
       ch += rand(l, r) - 1;
     }
+    str.push_back('\n');
+    return str;
+  }
+  string gen_num_string(int len = 0, int l = 0, int r = 9) {  // To generate a numerical string. Can be used to generate binary string by setting l = 0, r = 1
+    assert(len >= 0 && len <= 5e6);
+    string str(len, '0');
+    for (char &ch: str) {
+      ch += rand(l, r);
+    }
+    str.push_back('\n');
     return str;
   }
   vector<int> gen_array(int len = 0, int minRange = 0, int maxRange = inf){
